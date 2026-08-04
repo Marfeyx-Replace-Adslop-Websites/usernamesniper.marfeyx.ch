@@ -1,10 +1,10 @@
 {
   "name": "marfeyx-username-sniper",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "check": "node --check app-1.1.js && node --check claim-platforms-1.1.js && node scripts/validate.mjs",
+    "check": "node --check app-1.2.js && node --check claim-platforms-1.2.js && node scripts/validate.mjs",
     "build": "node scripts/build.mjs"
   }
 }
