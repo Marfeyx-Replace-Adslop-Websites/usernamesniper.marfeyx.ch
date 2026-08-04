@@ -1,5 +1,5 @@
 import { readFile } from "node:fs/promises";
-import { CLAIM_PLATFORMS } from "../claim-platforms-1.2.js";
+import { CLAIM_PLATFORMS } from "../claim-platforms-2.0.js";
 
 if (CLAIM_PLATFORMS.length < 40 || CLAIM_PLATFORMS.length > 100) throw new Error("Username Sniper must expose 40 to 100 curated platforms.");
 const ids = new Set();
@@ -11,7 +11,9 @@ for (const platform of CLAIM_PLATFORMS) {
   ids.add(platform.id);
 }
 const html = await readFile("index.html", "utf8");
-for (const asset of ["styles-1.2.css", "app-1.2.js", "claim-platforms-1.2.js", "config.js", "assets/marfeyx-avatar.jpg"]) {
-  if (!html.includes(asset) && asset !== "claim-platforms-1.2.js") throw new Error(`Index does not reference ${asset}`);
+for (const asset of ["styles-2.0.css", "app-2.0.js", "config.js", "assets/marfeyx-avatar.jpg"]) {
+  if (!html.includes(asset)) throw new Error(`Index does not reference ${asset}`);
 }
+const resultsHtml = await readFile("results/index.html", "utf8");
+for (const asset of ["../styles-2.0.css", "../results-2.0.js"]) if (!resultsHtml.includes(asset)) throw new Error(`Results route does not reference ${asset}`);
 console.log(`Validated ${CLAIM_PLATFORMS.length} claim platforms.`);
