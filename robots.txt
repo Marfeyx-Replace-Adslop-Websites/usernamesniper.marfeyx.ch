@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://usernamesniper.marfeyx.ch/sitemap.xml
