@@ -11,7 +11,7 @@ for (const platform of CLAIM_PLATFORMS) {
   ids.add(platform.id);
 }
 const html = await readFile("index.html", "utf8");
-for (const asset of ["styles-2.0.css", "app-2.0.js", "assets/marfeyx-avatar.jpg"]) {
+for (const asset of ["styles-2.0.css", "app-2.0.js", "assets/marfeyx.svg"]) {
   if (!html.includes(asset)) throw new Error(`Index does not reference ${asset}`);
 }
 if (/config\.js/i.test(html) || !html.includes("connect-src 'self';")) throw new Error("Index still references removed backend configuration.");

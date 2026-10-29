@@ -5,6 +5,6 @@ await rm("dist", { recursive: true, force: true });
 await mkdir("dist/assets", { recursive: true });
 await mkdir("dist/results", { recursive: true });
 for (const file of files) await cp(file, `dist/${file}`);
-await cp("assets/marfeyx-avatar.jpg", "dist/assets/marfeyx-avatar.jpg");
+await cp("assets", "dist/assets", { recursive: true });
 await cp("results/index.html", "dist/results/index.html");
 console.log(`Built ${files.length + 1} static assets in dist/`);
